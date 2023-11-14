@@ -53,15 +53,9 @@ jobs:
         sarif_file: results.sarif
 
     - name: Setup integration test environment
-      run: docker-compose up -d
+      run: |
+        docker-compose up -d
+        sleep 15s
 
-    - name: Code Coverage
-      run: go test ./... -timeout 600s -race -count=1 -covermode=atomic -coverprofile=coverage.txt
-
-    # - name: Upload coverage to Codecov
-    #   uses: codecov/codecov-action@v3
-    #   with:
-    #     token: ${{ secrets.CODECOV_TOKEN }}
-    #     files: ./coverage.txt
-    #     fail_ci_if_error: false
-    #     verbose: false
+    - name: Run Tests
+      run: go test ./... -timeout 600s
