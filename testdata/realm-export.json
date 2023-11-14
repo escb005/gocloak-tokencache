@@ -1,0 +1,51 @@
+{
+    "realm": "test",
+    "enabled": true,
+    "users": [
+        {
+            "username": "TestUser",
+            "enabled": true,
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "password"
+                }
+            ],
+            "realmRoles": [
+                "user"
+            ],
+            "clientRoles": {
+                "token-cache": [
+                    "user"
+                ]
+            }
+        }
+    ],
+    "roles": {
+        "realm": [
+            {
+                "name": "user"
+            }
+        ]
+    },
+    "defaultRoles": [
+        "user"
+    ],
+    "clients": [
+        {
+            "clientId": "token-cache",
+            "enabled": true,
+            "publicClient": true,
+            "directAccessGrantsEnabled": true,
+            "standardFlowEnabled": false,
+            "implicitFlowEnabled": false,
+            "protocol": "openid-connect",
+            "redirectUris": [
+                "*"
+            ],
+            "webOrigins": [
+                "*"
+            ]
+        }
+    ]
+}

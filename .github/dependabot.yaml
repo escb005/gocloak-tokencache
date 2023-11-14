@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - directory: /
+    package-ecosystem: gomod
+    schedule:
+      interval: daily
+    reviewers:
+      - escb005
+  - directory: /
+    package-ecosystem: docker
+    schedule:
+      interval: weekly
+    reviewers:
+      - escb005
+  - directory: /
+    package-ecosystem: github-actions
+    schedule:
+      interval: monthly
+    reviewers:
+      - escb005
