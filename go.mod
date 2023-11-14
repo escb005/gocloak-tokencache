@@ -1,6 +1,6 @@
 module github.com/escb005/gocloak-tokencache
 
-go 1.21.2
+go 1.18
 
 require (
 	github.com/Nerzal/gocloak/v13 v13.8.0
