@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  keycloak:
+    build:
+      context: testdata
+      dockerfile: keycloak.dockerfile
+    environment:
+      KC_HEALTH_ENABLED: "true"
+    ports:
+      - 8080:8080
+    healthcheck:
+      test: curl --fail --silent http://localhost:8080/health/ready 2>&1 || exit 1
+      interval: 10s
+      timeout: 10s
+      retries: 5
+    entrypoint: ["/opt/keycloak/bin/kc.sh", "start-dev --import-realm"]
