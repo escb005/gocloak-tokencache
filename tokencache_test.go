@@ -19,7 +19,7 @@ func TestGetToken(t *testing.T) {
 
 	cache := tokencache.NewTokenCache("http://localhost:8080",
 		tokencache.WithRealm("test"),
-		tokencache.WithExpiresSkew(299),
+		tokencache.WithExpiresSkew(295),
 		tokencache.WithTokenOptions(gocloak.TokenOptions{
 			GrantType: ToPointer("password"),
 			ClientID:  ToPointer("token-cache"),
@@ -39,7 +39,7 @@ func TestGetToken(t *testing.T) {
 	require.Equal(tok1.AccessToken, tok2.AccessToken)
 
 	// wait for token to expire
-	time.Sleep(1 * time.Second)
+	time.Sleep(5 * time.Second)
 
 	tok3, err := cache.GetToken()
 	require.NoError(err)
